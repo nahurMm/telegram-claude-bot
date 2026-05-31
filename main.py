@@ -24,7 +24,7 @@ def ask_deepseek(user_message):
     res = requests.post(url, headers=headers, json=body)
     return res.json()["choices"][0]["message"]["content"]
 
-@app.route(f"/{BOT_TOKEN}", methods=["POST"])
+@app.route("/webhook", methods=["POST"])
 def webhook():
     data = request.json
     if "message" in data:
